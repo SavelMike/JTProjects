@@ -1,14 +1,14 @@
 package cz.cvut.fit.glazafil;
 
-import cz.cvut.fit.glazafil.services.LoggerService;
-import cz.cvut.fit.glazafil.services.MailService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationConfig.xml");
-        Logger logger = (Logger) context.getBean("logger");
+        ApplicationContext ctx =
+                new AnnotationConfigApplicationContext(AppConfig.class);
+
+        Logger logger = ctx.getBean(Logger.class);
         logger.log("Error", Level.ERROR);
     }
 }

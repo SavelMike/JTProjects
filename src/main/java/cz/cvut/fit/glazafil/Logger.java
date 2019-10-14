@@ -6,6 +6,10 @@ public class Logger {
 
     private LoggerService service;
 
+    Logger(LoggerService service) {
+        this.setService(service);
+    }
+
     public LoggerService getService() {
         return service;
     }
